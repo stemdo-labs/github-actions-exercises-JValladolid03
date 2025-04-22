@@ -37,3 +37,9 @@ jobs:
       - name: Llamar al input
         run: echo Llamada al input = ${{ github.event.inputs.message }}
 ```
+
+Comprobar que funciona:
+
+![](../../../datos/trigger_dispatch_ej1_foto2.png)
+
+![](../../../datos/trigger_dispatch_ej1_foto3.png)
