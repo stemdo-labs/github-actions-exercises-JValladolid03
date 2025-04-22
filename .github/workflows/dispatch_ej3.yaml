@@ -1,0 +1,16 @@
+name: Workflow Triggers Dispatch EJ3  #Nombre del workflow
+
+on:
+  workflow_dispatch: #Configurar workflow dispatch
+    inputs:
+      confirm:
+        description: Confirmar
+        required: true
+        default: 'no'
+
+jobs:
+  print-tag:
+    runs-on: labs-runner
+    steps:
+      - name: Llamar al input
+        run: echo La confirmacion es = ${{ github.event.inputs.confirm }}
