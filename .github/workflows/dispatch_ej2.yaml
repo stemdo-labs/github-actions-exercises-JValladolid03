@@ -1,0 +1,19 @@
+name: Workflow Triggers Dispatch EJ2  #Nombre del workflow
+
+on:
+  workflow_dispatch: #Configurar workflow dispatch
+    inputs:
+      environment:
+        description: "Seleccionar opciones"
+        type: environment
+        required: true
+        options:
+          - production
+          - staging
+
+jobs:
+  print-tag:
+    runs-on: labs-runner
+    steps:
+      - name: Llamar al input
+        run: echo El entorno seleccionado es = ${{ github.event.inputs.environment }}
