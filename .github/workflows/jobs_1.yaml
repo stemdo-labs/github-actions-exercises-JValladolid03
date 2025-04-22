@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  tareas:
-    runs-on: ubuntu-latest
-    steps:
+  tareas: #Crear job
+    runs-on: ubuntu-latest #Asignarle runner
+    steps: #Crear tareas
       - name: Mostrar fecha y hora actual
         run: date
       - name: Crear archivo de texto
