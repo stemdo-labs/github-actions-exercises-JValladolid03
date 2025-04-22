@@ -4,8 +4,6 @@ name: Workflow Triggers EJ4  #Nombre del workflow
 on:
   schedule:
     - cron: '0 12 * * *'
-    - cron: '36 9 * * *'
-    - cron: '36 10 * * *'
 
 jobs: #Tareas
   
