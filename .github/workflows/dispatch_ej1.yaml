@@ -1,0 +1,16 @@
+name: Workflow Triggers Dispatch EJ1  #Nombre del workflow
+
+on:
+  workflow_dispatch: #Configurar workflow dispatch
+    inputs:
+      message:
+        description: "Mensaje personalizado"
+        required: true
+        default: "Vean One Piece"
+
+jobs:
+  print-tag:
+    runs-on: labs-runner
+    steps:
+      - name: Llamar al input
+        run: echo Llamada al input = ${{ github.event.inputs.message }}
