@@ -13,4 +13,4 @@ jobs:
     runs-on: labs-runner
     steps:
       - name: Llamar al input
-        run: echo El entorno seleccionado es = ${{ github.event.inputs.environment }}
+        run: echo La confirmacion es = ${{ github.event.inputs.confirm }}
