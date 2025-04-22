@@ -5,7 +5,7 @@ on:
 
 jobs:
   tareas: #Crear job
-    runs-on: ubuntu-latest #Asignarle runner
+    runs-on: labs-runner #Asignarle runner
     steps: #Crear tareas
       - name: Mostrar fecha y hora actual
         run: date
@@ -13,10 +13,12 @@ jobs:
         run: touch jvl.txt
       - name: Listar archivos en el directorio actual
         run: ls
+      - name: Checkout del repositorio
+        uses: actions/checkout@v3
       - name: Hacer commit y push de cualquier fichero en el repositorio
         run: |
           git config --global user.name "JValladolid03"
           git config --global user.email jvalladolid@stemdo.io
           git add .
-          git commit -m "Commit desde GitHub Actions"
+          git commit -m "Commit desde GitHub Actions" || echo "Error al subir"
           git push
