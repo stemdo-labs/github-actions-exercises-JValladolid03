@@ -5,7 +5,7 @@ on:
     inputs:
       environment:
         description: "Seleccionar opciones"
-        type: environment
+        type: choice
         required: true
         options:
           - production
