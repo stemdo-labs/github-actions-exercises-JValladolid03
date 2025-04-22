@@ -1,0 +1,14 @@
+name: Workflow Triggers EJ3  #Nombre del workflow
+
+#Se ejecuta al crear una issue
+on:
+  issues:
+    types: [opened]
+
+jobs: #Tareas
+  
+  saludo: #Mandar mensaje cuando se active
+    runs-on: labs-runner
+    steps:
+      - name: Saludo
+        run: echo "Mensaje al crear issue"
