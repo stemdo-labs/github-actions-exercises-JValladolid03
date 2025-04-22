@@ -15,4 +15,8 @@ jobs:
         run: ls
       - name: Hacer commit y push de cualquier fichero en el repositorio
         run: |
-          git config --global user.email jvalladolid@stemdo.io commit-push:
+          git config --global user.name "JValladolid03"
+          git config --global user.email jvalladolid@stemdo.io
+          git add .
+          git commit -m "Commit desde GitHub Actions"
+          git push
