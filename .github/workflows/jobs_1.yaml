@@ -6,25 +6,25 @@ on:
 jobs:
   #Mostrar fecha y hora actual
   print-date:
-    runs-on: labs-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Mostrar fecha y hora actual
         run: date
   #Crear un archivo de texto
   create-file:
-    runs-on: labs-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Crear archivo de texto
         run: touch jvl.txt
   #Listar los archivos en el directorio actual
   list-files:
-    runs-on: labs-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Listar archivos en el directorio actual
         run: ls
   #Hacer un commit y push de cualquier fichero en el repositorio
   commit-push:
-    runs-on: labs-runner
+    runs-on: ubuntu-latest
     steps:
       - name: Hacer commit y push de cualquier fichero en el repositorio
         run: |
