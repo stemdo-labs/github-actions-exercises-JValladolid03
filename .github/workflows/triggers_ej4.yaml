@@ -3,7 +3,7 @@ name: Workflow Triggers EJ4  #Nombre del workflow
 #Se ejecuta todos los dias a las 12
 on:
   schedule:
-    - cron: '0 12 * * *'
+    - cron: '25 12 * * *'
 
 jobs: #Tareas
   
