@@ -4,9 +4,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  tareas:
-    runs-on: ubuntu-latest
-    steps:
+  tareas: #Crear job
+    runs-on: ubuntu-latest #Asignarle runner
+    steps: #Crear tareas
       - name: Mostrar fecha y hora actual
         run: date
       - name: Crear archivo de texto
@@ -15,4 +15,8 @@ jobs:
         run: ls
       - name: Hacer commit y push de cualquier fichero en el repositorio
         run: |
-          git config --global user.email jvalladolid@stemdo.io commit-push:
+          git config --global user.name "JValladolid03"
+          git config --global user.email jvalladolid@stemdo.io
+          git add .
+          git commit -m "Commit desde GitHub Actions"
+          git push
