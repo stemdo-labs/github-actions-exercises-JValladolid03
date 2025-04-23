@@ -10,10 +10,10 @@ jobs:
     runs-on: labs-runner
     steps:
       - name: Definir dos variables de entorno"
-        run: echo "Definiendo variables de entorno con env"
         env:
           VAR1: "Vean"
           VAR2: "One Piece"
+        run: echo "Definiendo variables de entorno con env"
       - name: Usar las variables para ejecutar un script
         run: echo "Javier Valladolid recomienda $VAR1 $VAR2" 
         
