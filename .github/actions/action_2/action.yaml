@@ -15,6 +15,7 @@ runs: #Acciones
         autor=$(git log -1 --pretty=format:'%an')
         echo "Autor: $autor"
         echo "autor_commit=$autor" >> $GITHUB_OUTPUT
+      shell: bash
 
     - name: Usar autor del commit
       run: echo "El autor del último commit fue ${{ steps.autor_commit.outputs.autor_commit }}"
