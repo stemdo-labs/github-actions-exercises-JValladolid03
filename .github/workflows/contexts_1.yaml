@@ -1,0 +1,19 @@
+name: Workflow Contexts EJ1  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  #Mostrar información del runner
+  info:
+    runs-on: labs-runner
+    steps:
+      - run: |
+          echo "Nombre del runner: ${{ runner.name }}"
+          echo "OS del runner: ${{ runner.os }}"
+          echo "Arquitectura del runner: ${{ runner.arch }}"
+          echo "Espacio de disco disponible del runner: "
+          df -h
+          

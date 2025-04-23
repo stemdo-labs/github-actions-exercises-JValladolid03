@@ -1,0 +1,19 @@
+name: Workflow Contexts EJ2  #Nombre del workflow
+
+on:
+  workflow_dispatch: #Dispatch para poder elegir la rama
+
+jobs:
+  #Usar PROD_API_KEY para realizar un despliegue ficticio si se ejecuta en la rama main
+  despliegue:
+    runs-on: labs-runner
+    steps:
+      - run: |
+          if [ "${{ github.ref }}" == "refs/heads/main" ]; then
+            echo "Desplegando en MAIN"
+            echo "API_KEY: ${{ secrets.PROD_API_KEY }}"
+          else
+            echo "Desplegando en OTRA RAMA"
+            echo "API_KEY: ${{ secrets.STAGING_API_KEY }}"
+          fi
+          

@@ -1,0 +1,14 @@
+name: Action EJ1 #Nombre
+description: Crear un archivo de texto en el directorio raíz del repositorio con un mensaje #Descripcion
+inputs: #Parametros que se usando en la acción
+  message:
+    description: Mensaje del archivo
+    required: true
+    default: "Vean One Piece"
+
+runs: #Acciones
+  using: "composite" #Usar shell script
+  steps:
+    - name: Crear archivo
+      run: echo ${{ inputs.message }} > mensaje.txt #Crear archivo con el mensaje
+      shell: bash

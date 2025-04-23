@@ -1,0 +1,25 @@
+name: Workflow Jobs EJ4  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  #Crear un job el cual cree un archivo .txt llamado "test"
+  crear_archivo :
+    runs-on: labs-runner
+    steps:
+      - name: Crear archivo
+        run: echo "test" > test.txt
+  #Crear otro job que mueva el archivo creado anteriormente a otro directorio.
+  mover_archivo:
+    runs-on: labs-runner
+    needs: crear_archivo #Necesita el job anterior para asegurarse que el archivo existe
+    steps:
+      - name: Mover archivo
+        #Crear una carpeta y mover el archivo
+        run: |
+          mkdir test
+          mv test.txt test
+          

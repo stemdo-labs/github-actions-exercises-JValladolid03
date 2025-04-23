@@ -1,0 +1,15 @@
+name: Workflow Actions EJ1  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  #Llamar a la action personalizada
+  job1:
+    runs-on: labs-runner
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ./.github/actions/action_1 #Llamar a la action personalizada
+          
