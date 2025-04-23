@@ -19,3 +19,4 @@ runs: #Acciones
 
     - name: Usar autor del commit
       run: echo "El autor del último commit fue ${{ steps.autor_commit.outputs.autor_commit }}"
+      shell: bash
