@@ -9,7 +9,7 @@ jobs:
   urgent:
     runs-on: labs-runner
     steps:
-      - name: Comprobar si el PR contiene la palabra "urgent"
+      - name: Comprobar si el PR contiene la palabra " "
         run: |
           if [[ "${{ github.event.pull_request.title }}" == *"urgent"* ]]; then
             echo "Titulo: ${{ github.event.pull_request.title }}"
