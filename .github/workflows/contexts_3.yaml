@@ -1,4 +1,4 @@
-name: Workflow Contexts EJ2  #Nombre del workflow
+name: Workflow Contexts EJ3  #Nombre del workflow
 
 on:
   workflow_dispatch: #Dispatch para poder elegir la rama
