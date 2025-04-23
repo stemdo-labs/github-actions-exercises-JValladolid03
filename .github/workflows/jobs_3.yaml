@@ -1,0 +1,17 @@
+name: Workflow Jobs EJ3  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  example_matrix:
+    strategy:
+      matrix:
+        version: [10, 12, 14]
+        os: [ubuntu-latest, windows-latest]
+    steps:
+      - name: Comando
+        run: dir
+ 
