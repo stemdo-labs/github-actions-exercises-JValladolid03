@@ -1,18 +1,27 @@
-# name: Workflow Actions EJ3  #Nombre del workflow
+name: Workflow Actions EJ3  #Nombre del workflow
 
-# on:
-#   push: #Se ejecuta al hacer push en la rama "rama1"
-#     branches:
-#       - rama1
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
 
-# jobs:
-#   #Subir un archivo existente en el repositorio como un artefacto
-#   subir:
-#     runs-on: labs-runner
-#     steps:
-#       - uses: actions/checkout@v3 #Hacer checkout del repositorio
-#       - uses: actions/upload-artifact@v3 #Subir artefacto
-#         with:
-#           name: archivo1
-#           path: archivo1.txt
+jobs:
+  #Subir un archivo existente en el repositorio como un artefacto
+  subir:
+    runs-on: labs-runner
+    steps:
+      - uses: actions/checkout@v3 #Hacer checkout del repositorio
+      - uses: actions/upload-artifact@v3 #Subir artefacto
+        with:
+          name: prueba
+          path: prueba.txt
+  #Descargarlo y ver el contenido
+  descargar:
+    runs-on: labs-runner
+    needs: subir #Espera a que se ejecute "subir"
+    steps:
+      - uses: actions/download-artifact@v3 #Descargar artefacto
+        with:
+          name: prueba
+      - run: cat prueba.txt #Ver el contenido del directorio
           
