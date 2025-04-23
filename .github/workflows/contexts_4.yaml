@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Comprobar si el PR contiene la palabra "urgent"
         run: |
-          if [[ "${{ github.event.pull_request.title }}" == "*urgent*" ]]; then
+          if [[ "${{ github.event.pull_request.title }}" == *"urgent"* ]]; then
             echo "Titulo: ${{ github.event.pull_request.title }}"
             echo "Cuerpo: ${{ github.event.pull_request.body }}"
           else
