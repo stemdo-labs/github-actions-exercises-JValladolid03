@@ -13,7 +13,7 @@ jobs:
     runs-on: labs-runner
     steps:
       - name: Error
-        run: exit 1
+        run: exit 1 #Exit 1 para que falle la ejecución del job
   deploy: #Crear job deploy que mande un mensaje
     runs-on: labs-runner
     needs: build #Que dependa del extio de build

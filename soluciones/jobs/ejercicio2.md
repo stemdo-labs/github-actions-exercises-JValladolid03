@@ -20,7 +20,20 @@ steps:
 needs: build #Que dependa del extio de build
 ```
 
+Comprobar que ha funcionado:
+
+![](../../datos/jobs_ej2_foto2.png)
+
 - Si el job "build" falla, el job "deploy" **no debe ejecutarse.**
 
 Comprobación de que no sale el mensaje si el job `build` falla:
 
+Workflow modificado para que falle:
+
+![](../../datos/jobs_ej2_foto3.png)
+
+Resultado:
+
+![](../../datos/jobs_ej2_foto4.png)
+
+Como estaba planeado, al fallar el job `build`, el job `deploy` no se ejecuta.
