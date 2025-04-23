@@ -11,8 +11,9 @@ jobs:
     runs-on: labs-runner
     steps:
       - run: |
-          echo "Nombr del runner: ${{ runner.name }}"
+          echo "Nombre del runner: ${{ runner.name }}"
           echo "OS del runner: ${{ runner.os }}"
           echo "Arquitectura del runner: ${{ runner.arch }}"
-          echo "Espacio de disco disponible del runner: ${{ runner.disk }}"
+          echo "Espacio de disco disponible del runner: "
+          df -h
           
