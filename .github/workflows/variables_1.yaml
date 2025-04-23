@@ -1,0 +1,19 @@
+name: Workflow Variables EJ1  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  job:
+    runs-on: labs-runner
+    steps:
+      - name: Definir dos variables de entorno"
+        env:
+          VAR1: "Vean"
+          VAR2: "One Piece"
+      - name: Usar las variables para ejecutar un script
+        run: |
+          echo "Javier Valladolid recomienda: VAR1 $VAR1" 
+        
