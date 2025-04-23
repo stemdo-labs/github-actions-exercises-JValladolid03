@@ -29,14 +29,23 @@ Workflow:
 
 ```yaml
 - name: Hacer commit y push de cualquier fichero en el repositorio
-  run: |
-    git config --global user.name "JValladolid03"
-    git config --global user.email jvalladolid@stemdo.io
-    git add .
-    git commit -m "Commit desde GitHub Actions" || echo "Error al subir"
-    git push
+  uses: stefanzweifel/git-auto-commit-action@v5
+  with:
+    commit_message: "jvl.txt añadido"
+```
+
+Para poder hacer los cambios en el repositorio primero tenemos que hacerle un checkout con el token de acceso:
+
+```yaml
+- name: Checkout del repositorio #Tarea extra
+  uses: actions/checkout@v3
+  with:
+    token: ${{ secrets.GITHUB_TOKEN }}
+    fetch-depth: 0
 ```
 
 Resultado:
 
 ![](../../datos/jobs_ej1_foto2.png)
+
+![](../../datos/jobs_ej1_foto3.png)
