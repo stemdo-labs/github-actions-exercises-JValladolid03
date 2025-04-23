@@ -25,7 +25,9 @@ jobs:
       - name: Hacer commit y push de cualquier fichero en el repositorio
         #Conetar cuenta al repositorio, añadir archivo creado y hacer commit y push
         run: |
-          git pull main main
+          git clone https://github.com/stemdo-labs/github-actions-exercises-JValladolid03.git
+          cd github-actions-exercises-JValladolid03
+          git pull origin main
           date > jvl.txt
           git config --global user.name "JValladolid03"
           git config --global user.email jvalladolid@stemdo.io
