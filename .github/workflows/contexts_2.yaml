@@ -11,9 +11,12 @@ jobs:
       - run: |
           if [ "${{ github.ref }}" == "refs/heads/main" ]; then
             echo "Desplegando en MAIN"
-            echo "API_KEY: ${{ secrets.PROD_API_KEY }}"
+            echo "API_KEY: ${#PROD_API_KEY}"
           else
             echo "Desplegando en OTRA RAMA"
-            echo "API_KEY: ${{ secrets.STAGING_API_KEY }}"
+            echo "API_KEY: ${#STAGING_API_KEY}"
           fi
+        env:
+          PROD_API_KEY: ${{ secrets.PROD_API_KEY }}
+          STAGING_API_KEY: ${{ secrets.STAGING_API_KEY }}
           
