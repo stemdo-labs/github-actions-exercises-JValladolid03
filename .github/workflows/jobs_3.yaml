@@ -6,13 +6,13 @@ on:
       - rama1
 
 jobs:
-  example_matrix:
+  example_matrix: #Crear job que use matix
     runs-on: labs-runner
     strategy:
       matrix:
-        version: [10, 12, 14]
-        os: [ubuntu-latest, windows-latest]
-    steps:
+        version: [10, 12, 14] #Versiones de los SO
+        os: [ubuntu-latest, windows-latest] #Sistemas operativos a usar
+    steps: #Accion que harán los SO
       - name: Comando
         run: dir
  
