@@ -13,7 +13,7 @@ jobs:
     runs-on: labs-runner
     steps:
       - name: Error
-        uses: fsdafdsafdsaf
+        uses: exit 1
   deploy: #Crear job deploy que mande un mensaje
     runs-on: labs-runner
     needs: build #Que dependa del extio de build
