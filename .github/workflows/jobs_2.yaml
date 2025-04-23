@@ -1,0 +1,21 @@
+name: Workflow Jobs EJ2  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en cualquier rama
+
+permissions:
+  contents: write #Dar permisos de escritura
+
+jobs:
+  build: #Crear job build que haga una acción
+    runs-on: labs-runner
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+  deploy: #Crear job deploy que mande un mensaje
+    runs-on: labs-runner
+    needs: build #Que dependa del extio de build
+    steps:
+      - name: Saludo
+        run: echo "Hola, el job 'build' ha funcionado"
+ 

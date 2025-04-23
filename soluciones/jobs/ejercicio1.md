@@ -49,3 +49,5 @@ Resultado:
 ![](../../datos/jobs_ej1_foto2.png)
 
 ![](../../datos/jobs_ej1_foto3.png)
+
+![](../../datos/jobs_ej1_foto4.png)
