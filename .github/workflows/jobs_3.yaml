@@ -7,6 +7,7 @@ on:
 
 jobs:
   example_matrix:
+    runs-on: labs-runner
     strategy:
       matrix:
         version: [10, 12, 14]
