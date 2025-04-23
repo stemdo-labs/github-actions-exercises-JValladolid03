@@ -3,6 +3,9 @@ name: Workflow Jobs EJ1  #Nombre del workflow
 on:
   workflow_dispatch:
 
+permissions:
+  contents: read
+
 jobs:
   tareas: #Crear job
     runs-on: labs-runner #Asignarle runner
@@ -15,9 +18,15 @@ jobs:
         run: ls
       - name: Checkout del repositorio
         uses: actions/checkout@v3
+        with:
+          sparse-checkout: |
+            jvl.txt
+          sparse-checkout-cone-mode: false
       - name: Hacer commit y push de cualquier fichero en el repositorio
         #Conetar cuenta al repositorio, añadir archivo creado y hacer commit y push
         run: |
+          git pull main main
+          date > jvl.txt
           git config --global user.name "JValladolid03"
           git config --global user.email jvalladolid@stemdo.io
           git add jvl.txt
