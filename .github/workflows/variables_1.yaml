@@ -15,6 +15,5 @@ jobs:
           VAR1: "Vean"
           VAR2: "One Piece"
       - name: Usar las variables para ejecutar un script
-        run: |
-          echo "Javier Valladolid recomienda: $VAR1 $VAR2" 
+        run: echo "Javier Valladolid recomienda $VAR1 $VAR2" 
         
