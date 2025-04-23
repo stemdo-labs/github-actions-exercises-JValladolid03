@@ -11,7 +11,7 @@ jobs:
     runs-on: labs-runner
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/action@v1 #Llamar a la action personalizada
+      - uses: .github/actions/action_1 #Llamar a la action personalizada
         with:
           message: "Archivo creado con la action1"
           
