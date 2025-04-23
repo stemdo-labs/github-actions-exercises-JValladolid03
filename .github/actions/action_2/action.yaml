@@ -1,0 +1,20 @@
+name: Action EJ2 #Nombre
+description: Crear una custom action usando composite actions que imprime el nombre del autor del último commit en los logs del workflow #Descripcion
+inputs: #Parametros que se usando en la acción
+  message:
+    description: Mensaje a imprimir
+    required: true
+    default: "Mensaje por defecto"
+
+runs: #Acciones
+  using: composite
+  steps:
+    - name: Obtener autor del último commit
+      id: autor_commit
+      run: |
+        autor=$(git log -1 --pretty=format:'%an')
+        echo "Autor: $autor"
+        echo "autor_commit=$autor" >> $GITHUB_OUTPUT
+
+    - name: Usar autor del commit
+      run: echo "El autor del último commit fue ${{ steps.autor_commit.outputs.autor_commit }}"
