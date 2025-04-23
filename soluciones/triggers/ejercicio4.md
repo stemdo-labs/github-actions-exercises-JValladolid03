@@ -20,3 +20,6 @@ En la sintaxis de `cron` los asteriscos representan un valor horario:
 - Mes (1-12)
 - Día de la semana (0-6)
 
+Comprobar que funciona:
+
+![](../../datos/trigger_ej4_foto2.png)
