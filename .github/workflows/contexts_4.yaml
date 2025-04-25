@@ -1,0 +1,20 @@
+name: Workflow Contexts EJ4  #Nombre del workflow
+
+on:
+  pull_request: #Se ejecuta al hacer un pull request
+    types: [opened]
+
+jobs:
+  #Comprobar si el pull request contiene la palabra "urgent"
+  urgent:
+    runs-on: labs-runner
+    steps:
+      - name: Comprobar si el PR contiene la palabra " "
+        run: |
+          if [[ "${{ github.event.pull_request.title }}" == *"urgent"* ]]; then
+            echo "Titulo: ${{ github.event.pull_request.title }}"
+            echo "Cuerpo: ${{ github.event.pull_request.body }}"
+          else
+            exit 1
+          fi
+        

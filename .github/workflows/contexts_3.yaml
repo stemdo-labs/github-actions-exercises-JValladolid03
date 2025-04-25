@@ -1,0 +1,31 @@
+name: Workflow Contexts EJ3  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  #Hacer espera de 5 segundos y mandar mensaje
+  tarea:
+    runs-on: labs-runner
+    steps:
+      - run: |
+          echo "Iniciando la tarea"
+          sleep 5
+  #Mandar mensaje según el estado de la tarea
+  mensaje:
+    runs-on: labs-runner
+    needs: tarea
+    steps:
+      #Mostrar estado de la tarea
+      - run: |
+          if [ "${{ job.status	 }}" == "success" ]; then
+            echo "La tarea ha terminado correctamente"
+          elif [ "${{ job.status }}" == "failure" ]; then
+            echo "La tarea ha terminado con errores"
+          elif [ "${{ job.status }}" == "cancelled" ]; then
+            echo "La tarea ha sido cancelada"
+          fi
+          echo "El evento que lo desencadenó fue: ${{ github.event_name }}"
+        
