@@ -1,0 +1,23 @@
+name: Workflow Variables EJ4  #Nombre del workflow
+
+on:
+  workflow_dispatch: #Se ejecuta en una rama a elección
+
+jobs:
+  variables:
+    runs-on: [self-hosted, labs-runner]
+    steps:
+      #Paso 1
+      - name: Checkout de repo para ver los archivos que existen
+        uses: actions/checkout@v3
+      - name: Comprobar si existe config.json y es valido
+        run: |
+          if [ ! -f "config.json" ]; then
+            echo "El archivo config.json no existe"
+            exit 1
+          fi
+
+          if ! jq -e . "config.json" > /dev/null 2>&1; then
+            echo "El archivo config.json no es valido"
+            exit 1
+          fi
