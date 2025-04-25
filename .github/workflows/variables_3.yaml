@@ -15,5 +15,5 @@ jobs:
           echo "NUMERO=$NUMERO" >> $GITHUB_ENV
       - name: Comprobar mayor de 50
         run: |
-          if [ $NUMERO -gt 50 ]; then
+          if [ "$NUMERO" -gt 50 ]; then
             echo "El número es mayor que 50"
