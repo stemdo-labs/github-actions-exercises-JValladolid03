@@ -8,5 +8,7 @@ on:
 jobs:
   llamar_workflow:
     uses: ./.github/workflows/reusable_1_1.yaml
+    with:
+      config-path: "./ruta/al/config.json"
     secrets:
       token: ${{ secrets.MY_SECRET }}
