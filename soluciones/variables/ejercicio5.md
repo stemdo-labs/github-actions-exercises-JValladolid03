@@ -63,12 +63,12 @@ Compartir variables entre jobs:
 job3:
   runs-on: [self-hosted, labs-runner]
   outputs: #Crear output
-    var3: ${{ steps.step1.outputs.var3 }}
+    var3: ${{ steps.definir_var3.outputs.var3 }}
   steps:
     - name: Imprimir el valor de "var2"
       run: |
         echo "El valor de var2 es $var2"
-    - name: Definir var3 para compartir con otros jobs.
+    - id: definir_var3 #Darle valor
       run: echo "var3=3" >> "$GITHUB_OUTPUT"
 ```
 
@@ -96,6 +96,8 @@ job4:
 
 Resultado:
 
+![](../../datos/variables_ej5_foto5.png)
+
 ---
 Usar variables predefinidas de GitHub:
 
@@ -103,3 +105,22 @@ Usar variables predefinidas de GitHub:
   - Nombre del ``repositorio``.
   - Nombre de la ``rama``.
   - Nombre del ``evento`` que activó el workflow.
+
+```yaml
+job5:
+  runs-on: [self-hosted, labs-runner]
+  steps:
+    - name: Imprimir nombre del repositorio
+      run: |
+        echo "El nombre del repositorio es $GITHUB_REPOSITORY"
+    - name: Imprimir nombre de la rama
+      run: |
+        echo "El nombre de la rama es $GITHUB_REF_NAME"
+    - name: Imprimir nombre del evento que activo el workflow
+      run: |
+        echo "El nombre del evento que activo el workflow es $GITHUB_EVENT_NAME"
+```
+
+Resultado:
+
+![](../../datos/variables_ej5_foto6.png)

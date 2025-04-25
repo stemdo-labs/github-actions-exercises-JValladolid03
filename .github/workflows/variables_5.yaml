@@ -59,4 +59,4 @@ jobs:
           echo "El nombre de la rama es $GITHUB_REF_NAME"
       - name: Imprimir nombre del evento que activo el workflow
         run: |
-          echo "El nombre del evento que activo el workflow es $GITHUB_EVENT_NAME"	
+          echo "El nombre del evento que activo el workflow es $GITHUB_EVENT_NAME"
