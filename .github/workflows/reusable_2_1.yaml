@@ -17,8 +17,8 @@ jobs:
     - name: Mensaje
       #Comprobar que la rama empiezac on "feature/"
       run: |
-        echo "El nombre de la rama es $GITHUB_REF"
-        if [[ $GITHUB_REF == feature/* ]]; then
+        echo "El nombre de la rama es ${{ inputs.branch-name }}"
+        if [[ ${{ inputs.branch-name }} == feature/* ]]; then
           echo "La rama empieza por feature/"
         else
           echo "La rama no empieza por feature/"
