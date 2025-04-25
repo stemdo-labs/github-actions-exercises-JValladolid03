@@ -13,6 +13,7 @@ jobs:
         run: |
           NUMERO=$((RANDOM % 100 + 1))
           echo "NUMERO=$NUMERO" >> $GITHUB_ENV
+          echo "El número es: $NUMERO"
       - name: Comprobar mayor de 50
         run: |
           if [ "$NUMERO" -gt 50 ]; then
