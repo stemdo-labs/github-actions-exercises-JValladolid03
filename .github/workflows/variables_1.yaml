@@ -9,13 +9,13 @@ jobs:
   variables:
     runs-on: [self-hosted, labs-runner]
     steps:
-      - name: Define variables
+      - name: Definir variables
         run: |
-          echo "VARIABLE_1=Hola" >> $GITHUB_ENV
-          echo "VARIABLE_2=soy Leandro" >> $GITHUB_ENV
+          echo "VARIABLE1=Vean" >> $GITHUB_ENV
+          echo "VARIABLE2=One Piece" >> $GITHUB_ENV
  
-      - name: Print variables
+      - name: Mostrar variables
         run: |
-          echo "VARIABLE_1: $VARIABLE_1"
-          echo "VARIABLE_2: $VARIABLE_2"
+          echo "VARIABLE1: $VARIABLE1"
+          echo "VARIABLE2: $VARIABLE2"
         
