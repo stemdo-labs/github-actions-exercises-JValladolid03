@@ -6,14 +6,16 @@ on:
       - rama1
 
 jobs:
-  script:
-    runs-on: labs-runner
+  variables:
+    runs-on: [self-hosted, labs-runner]
     steps:
-    - name: Definir variables de entorno
-      env:
-        MI_VARIABLE_1: Vean
-        MI_VARIABLE_2: One_Piece
-      run: echo "Variables definidas con exito"
-    - name: Comprobar las variables
-      run: echo "Mis variables son $MI_VARIABLE_1 y $MI_VARIABLE_2"
+      - name: Define variables
+        run: |
+          echo "VARIABLE_1=Hola" >> $GITHUB_ENV
+          echo "VARIABLE_2=soy Leandro" >> $GITHUB_ENV
+ 
+      - name: Print variables
+        run: |
+          echo "VARIABLE_1: $VARIABLE_1"
+          echo "VARIABLE_2: $VARIABLE_2"
         
