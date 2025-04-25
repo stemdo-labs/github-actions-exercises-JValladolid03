@@ -17,3 +17,4 @@ jobs:
         run: |
           if [ "$NUMERO" -gt 50 ]; then
             echo "El número es mayor que 50"
+          fi
