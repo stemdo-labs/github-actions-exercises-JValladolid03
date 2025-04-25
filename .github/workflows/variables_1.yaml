@@ -13,7 +13,6 @@ jobs:
         run: |
           echo "VARIABLE1=Vean" >> $GITHUB_ENV
           echo "VARIABLE2=One Piece" >> $GITHUB_ENV
- 
       - name: Mostrar variables
         run: |
           echo "VARIABLE1: $VARIABLE1"
