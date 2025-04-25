@@ -18,7 +18,7 @@ jobs:
       #Comprobar que la rama empiezac on "feature/"
       run: |
         echo "El nombre de la rama es ${{ inputs.branch-name }}"
-        if [[ ${{ inputs.branch-name }} == feature/* ]]; then
+        if [[ "${{ inputs.branch-name }}" == feature/* ]]; then
           echo "La rama empieza por feature/"
         else
           echo "La rama no empieza por feature/"
