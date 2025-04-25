@@ -17,6 +17,5 @@ jobs:
     - name: Mensaje
       run: |
         echo "Soy un workflow reusable"
-      with:
-        config-path: ${{ inputs.config-path }}
-        token: ${{ secrets.token }}
+        echo "Ruta de config: ${{ inputs.config-path }}"
+        echo "Token recibido: ${{ secrets.token }}"
