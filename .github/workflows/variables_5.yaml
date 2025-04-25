@@ -40,23 +40,23 @@ jobs:
       - name: Definir var3 para compartir con otros jobs.
         run: echo "var3=3" >> "$GITHUB_OUTPUT"
 
-    job4:
-      runs-on: [self-hosted, labs-runner]
-      needs: job3
-      steps:
-        - name: Imprimir el valor de "var3"
-          run: |
-            echo "El valor de var3 es $var3"
+  job4:
+    runs-on: [self-hosted, labs-runner]
+    needs: job3
+    steps:
+      - name: Imprimir el valor de "var3"
+        run: |
+          echo "El valor de var3 es $var3"
 
-    job5:
-      runs-on: [self-hosted, labs-runner]
-      steps:
-        - name: Imprimir nombre del repositorio
-          run: |
-            echo "El nombre del repositorio es $GITHUB_ACTION_REPOSITORY"
-        - name: Imprimir nombre de la rama
-          run: |
-            echo "El nombre de la rama es $GITHUB_REF_NAME"
-        - name: Imprimir nombre del evento que activo el workflow
-          run: |
-            echo "El nombre del evento que activo el workflow es $GITHUB_EVENT_NAME"	
+  job5:
+    runs-on: [self-hosted, labs-runner]
+    steps:
+      - name: Imprimir nombre del repositorio
+        run: |
+          echo "El nombre del repositorio es $GITHUB_ACTION_REPOSITORY"
+      - name: Imprimir nombre de la rama
+        run: |
+          echo "El nombre de la rama es $GITHUB_REF_NAME"
+      - name: Imprimir nombre del evento que activo el workflow
+        run: |
+          echo "El nombre del evento que activo el workflow es $GITHUB_EVENT_NAME"	
