@@ -8,3 +8,5 @@ on:
 jobs:
   llamar_workflow:
     uses: ./.github/workflows/reusable_1_1.yaml
+    secrets:
+      token: ${{ secrets.MY_SECRET }}
