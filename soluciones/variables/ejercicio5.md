@@ -1,5 +1,9 @@
 # Ejercicio 5
 
+Workflow:
+
+![](../../datos/variables_ej5_foto1.png)
+
 Variables entre pasos de un mismo job:
 
 - Crea un job que:
@@ -7,12 +11,36 @@ Variables entre pasos de un mismo job:
   - Defina una variable ``var2`` usando el entorno de GitHub (``$GITHUB_ENV``) con valor 2.
   - Imprima el valor de ``var2`` en un paso diferente.
 
+```yaml
+job1:
+  runs-on: [self-hosted, labs-runner]
+  steps:
+    - name: Definir una variable, imprimirla y definir otra con ENV
+      run: |
+        var1=1
+        echo "El valor de var1 es $var1"
+        echo "var2=2" >> $GITHUB_ENV
+    - name: Imprimir var2
+      run: |
+        echo "El valor de var2 es $var2"
+```
+
+Resultado:
+
+![](../../datos/variables_ej5_foto2.png)
+
 ---
 Compartir variables entre pasos usando outputs:
 
 - Crea un job que:
   - Defina un output ``var_step_output`` con valor "valor".
   - Imprima el valor de ``var_step_output`` en un paso posterior.
+
+```yaml
+
+```
+
+
 
 ---
 Compartir variables entre jobs:
