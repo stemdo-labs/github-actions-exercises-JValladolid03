@@ -37,10 +37,20 @@ Compartir variables entre pasos usando outputs:
   - Imprima el valor de ``var_step_output`` en un paso posterior.
 
 ```yaml
-
+job2:
+  runs-on: [self-hosted, labs-runner]
+  outputs: #Crear output
+    var_step_output: ${{ steps.step1.outputs.var_step_output }}
+  steps:
+    - id: step1 #Darle valor
+      run: echo "var_step_output=valor" >> "$GITHUB_OUTPUT" 
+    - id: step2 #Mostrar valor
+      run: echo "El valor de var_step_output es ${{ steps.step1.outputs.var_step_output }}"
 ```
 
+Resultado:
 
+![](../../datos/variables_ej5_foto3.png)
 
 ---
 Compartir variables entre jobs:
@@ -49,11 +59,42 @@ Compartir variables entre jobs:
   - Imprima el valor de ``var2`` y observa qué sucede.
   - Defina un output ``var3`` con valor 3 para compartir con otros jobs.
 
+```yaml
+job3:
+  runs-on: [self-hosted, labs-runner]
+  outputs: #Crear output
+    var3: ${{ steps.step1.outputs.var3 }}
+  steps:
+    - name: Imprimir el valor de "var2"
+      run: |
+        echo "El valor de var2 es $var2"
+    - name: Definir var3 para compartir con otros jobs.
+      run: echo "var3=3" >> "$GITHUB_OUTPUT"
+```
+
+Resultado:
+
+![](../../datos/variables_ej5_foto4.png)
+
+El valor de var2 no se muestra porque es un Step Output y no se guarda entre jobs.
+
 ---
 Imprimir variables entre jobs:
 
 - Crea un job que dependa del anterior y:
-  - Imprima el valor de ``var3`` definido en el job anterior.
+- Imprima el valor de ``var3`` definido en el job anterior.
+
+```yaml
+job4:
+  runs-on: [self-hosted, labs-runner]
+  needs: job3
+  steps:
+    - name: Imprimir el valor de "var3"
+      run: |
+        echo "El valor de var3 es ${{ needs.job3.outputs.var3 }}"
+```
+
+Resultado:
 
 ---
 Usar variables predefinidas de GitHub:

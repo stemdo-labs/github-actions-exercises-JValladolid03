@@ -32,12 +32,12 @@ jobs:
   job3:
     runs-on: [self-hosted, labs-runner]
     outputs: #Crear output
-      var3: ${{ steps.step1.outputs.var3 }}
+      var3: ${{ steps.definir_var3.outputs.var3 }}
     steps:
       - name: Imprimir el valor de "var2"
         run: |
           echo "El valor de var2 es $var2"
-      - name: Definir var3 para compartir con otros jobs.
+      - id: definir_var3 #Darle valor
         run: echo "var3=3" >> "$GITHUB_OUTPUT"
 
   job4:
