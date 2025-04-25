@@ -1,0 +1,19 @@
+name: Workflow Variables EJ3  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  variables:
+    runs-on: [self-hosted, labs-runner]
+    steps:
+      - name: Número aleatorio del 1 al 100
+        run: |
+          NUMERO=$((RANDOM % 100 + 1))
+          echo "NUMERO=$NUMERO" >> $GITHUB_ENV
+      - name: Comprobar mayor de 50
+        run: |
+          if [ $NUMERO -gt 50 ]; then
+            echo "El número es mayor que 50"
