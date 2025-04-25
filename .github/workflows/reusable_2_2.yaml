@@ -12,3 +12,11 @@ jobs:
       config-path: "./ruta/al/config.json"
     secrets:
       token: ${{ secrets.MY_SECRET }}
+
+  tarea_principal:
+    runs-on: [self-hosted, labs-runner]
+    needs: [llamar_workflow]
+    steps:
+    - name: Tarea principal
+      run: |
+        echo "Tarea principal completada"
