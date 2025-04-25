@@ -36,4 +36,4 @@ jobs:
           elif [ "$GITHUB_REF" == "refs/heads/rama1" ]; then
             echo "El workflow se ejecuta en la rama rama1"
             echo "Iniciando despliegue en develop"
-          else
+          fi
