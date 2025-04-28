@@ -23,7 +23,7 @@ jobs:
 
   #Llamar al reusable con la variable "rama"
   llamar_workflow:
-    uses: ./.github/workflows/deploy-environment.yaml
+    uses: ./.github/workflows/deploy-environment.yml
     with:
       environment: ${{ needs.crear_variable.outputs.environment }}
     secrets:
