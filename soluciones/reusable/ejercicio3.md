@@ -72,3 +72,9 @@ Comprobar con la rama rama1:
 ![](../../datos/reusable_ej3_foto10.png)
 
 ![](../../datos/reusable_ej3_foto11.png)
+
+Comprobar con la rama develop:
+
+![](../../datos/reusable_ej3_foto12.png)
+
+![](../../datos/reusable_ej3_foto13.png)
