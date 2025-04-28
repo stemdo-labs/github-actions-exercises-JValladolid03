@@ -3,7 +3,7 @@ name: Workflow Reusable EJ3_1  #Nombre del workflow
 on:
   workflow_call: #Se ejecuta al ser llamado por otro workflow
     inputs:
-      config-path:
+      environment: #Recibe el enviroment como input
         required: true
         type: string
     secrets:
@@ -11,15 +11,11 @@ on:
         required: true
 
 jobs:
-  mensaje:
+  mostrar-variables:
     runs-on: [self-hosted, labs-runner]
+    environment: ${{ inputs.environment }}
     steps:
-    - name: Mensaje
-      #Comprobar que la rama empiezac on "feature/"
+    - name: Mostrar variables del enviroment
       run: |
-        echo "El nombre de la rama es $GITHUB_REF_NAME"
-        if [[ $GITHUB_REF_NAME == feature/* ]]; then
-          echo "La rama empieza por feature/"
-          echo "Ruta de config: ${{ inputs.config-path }}"
-          echo "Token recibido: ${{ secrets.token }}"
-        fi
+        echo "La variable API_URL es ${{ secrets.API_URL }}"
+        echo "La variable LOG_LEVEL es ${{ secrets.LOG_LEVEL }}"

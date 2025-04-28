@@ -1,0 +1,30 @@
+name: Workflow Reusable EJ3_2  #Nombre del workflow
+
+on:
+  workflow_dispatch: #Se ejecuta en una rama a elección
+
+jobs:
+  #Crear variable de la rama en la que se ejecuta el workflow
+  crear_variable:
+    runs-on: [self-hosted, labs-runner]
+    outputs:
+      environment: ${{ steps.asingar_enviroment.outputs.environment }}
+    steps:
+      #Asignar enviroment segun la rama ejecutada
+    - id: asingar_enviroment
+      run: |
+        if [[ $GITHUB_REF_NAME == "main" ]]; then
+          echo "environment=production" >> "$GITHUB_OUTPUT"
+        elif [[ $GITHUB_REF_NAME == "develop" ]]; then
+          echo "environment=development" >> "$GITHUB_OUTPUT"
+        elif [[ $GITHUB_REF_NAME == "rama1" ]]; then
+          echo "environment=staging" >> "$GITHUB_OUTPUT"
+        fi
+
+  #Llamar al reusable con la variable "rama"
+  llamar_workflow:
+    uses: ./.github/workflows/deploy-environment.yaml
+    with:
+      environment: ${{ needs.crear_variable.outputs.environment }}
+    secrets:
+      token: ${{ secrets.MY_SECRET }}
