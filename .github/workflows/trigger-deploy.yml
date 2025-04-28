@@ -24,7 +24,14 @@ jobs:
         elif [[ $GITHUB_REF_NAME == "rama1" ]]; then
           echo "environment=staging" >> "$GITHUB_OUTPUT"
         fi
-        echo "El enviroment es $environment"
+
+    mostrar_enviroment:
+      runs-on: ubuntu-latest
+      needs: crear_variable
+      steps:
+        - name: Mostrar enviroment
+          run: |
+            echo "El enviroment es ${{ needs.crear_variable.outputs.environment }}"
 
   #Llamar al reusable con la variable "rama"
   # llamar_workflow:
