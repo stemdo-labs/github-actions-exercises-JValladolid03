@@ -1,0 +1,21 @@
+name: Workflow Reusable EJ3_1  #Nombre del workflow
+
+on:
+  workflow_call: #Se ejecuta al ser llamado por otro workflow
+    inputs:
+      environment: #Recibe el enviroment como input
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  mostrar-variables:
+    runs-on: [self-hosted, labs-runner]
+    environment: ${{ inputs.environment }}
+    steps:
+    - name: Mostrar variables del enviroment
+      run: |
+        echo "La variable API_URL es ${{ secrets.API_URL }}"
+        echo "La variable LOG_LEVEL es ${{ secrets.LOG_LEVEL }}"

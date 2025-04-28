@@ -1,0 +1,21 @@
+name: Workflow Reusable EJ1_1  #Nombre del workflow
+
+on:
+  workflow_call: #Se ejecuta al ser llamado por otro workflow
+    inputs:
+      config-path:
+        required: true
+        type: string
+    secrets:
+      token:
+        required: true
+
+jobs:
+  mensaje:
+    runs-on: [self-hosted, labs-runner]
+    steps:
+    - name: Mensaje
+      run: |
+        echo "Soy un workflow reusable"
+        echo "Ruta de config: ${{ inputs.config-path }}"
+        echo "Token recibido: ${{ secrets.token }}"

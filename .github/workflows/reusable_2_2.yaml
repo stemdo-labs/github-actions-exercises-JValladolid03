@@ -1,0 +1,22 @@
+name: Workflow Reusable EJ2_2  #Nombre del workflow
+
+on:
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
+
+jobs:
+  llamar_workflow:
+    uses: ./.github/workflows/reusable_2_1.yaml
+    with:
+      config-path: "./ruta/al/config.json"
+    secrets:
+      token: ${{ secrets.MY_SECRET }}
+
+  tarea_principal:
+    runs-on: [self-hosted, labs-runner]
+    needs: [llamar_workflow]
+    steps:
+    - name: Tarea principal
+      run: |
+        echo "Tarea principal completada"
