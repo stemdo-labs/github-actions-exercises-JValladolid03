@@ -6,7 +6,7 @@ on:
 jobs:
   #Crear variable de la rama en la que se ejecuta el workflow
   crear_variable:
-    runs-on: [self-hosted, labs-runner]
+    runs-on: ubuntu-latest
     outputs:
       environment: ${{ steps.asingar_enviroment.outputs.environment }}
     steps:
