@@ -15,8 +15,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     env: #Cargar las variables
-      API_URL: ${{ secrets.API_URL }}
-      LOG_LEVEL: ${{ secrets.LOG_LEVEL }}
+      API_URL: ${{ vars.API_URL }}
+      LOG_LEVEL: ${{ vars.LOG_LEVEL }}
     steps:
     - name: Mostrar variables del enviroment
       run: |
