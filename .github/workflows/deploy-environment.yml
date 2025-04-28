@@ -17,5 +17,6 @@ jobs:
     steps:
     - name: Mostrar variables del enviroment
       run: |
-        echo "La variable API_URL es ${{ vars.API_URL }}"
-        echo "La variable LOG_LEVEL es ${{ vars.LOG_LEVEL }}"
+        echo "El environment es ${{ inputs.environment }}"
+        echo "La variable API_URL es $API_URL"
+        echo "La variable LOG_LEVEL es $LOG_LEVEL"
