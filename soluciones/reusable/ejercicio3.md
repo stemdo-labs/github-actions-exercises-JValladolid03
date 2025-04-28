@@ -51,3 +51,30 @@ Vista general:
 
 ![](../../datos/reusable_ej3_foto5.png)
 
+Crear workflow principal:
+
+![](../../datos/reusable_ej3_foto6.png)
+
+NOTA: En vez de utilizar una rama llamada "release/*" he usado la rama que ya tenía creada llamada "rama1".
+
+Crear workflow reusable:
+
+![](../../datos/reusable_ej3_foto7.png)
+
+Comprobar con la rama main:
+
+![](../../datos/reusable_ej3_foto8.png)
+
+![](../../datos/reusable_ej3_foto9.png)
+
+Comprobar con la rama rama1:
+
+![](../../datos/reusable_ej3_foto10.png)
+
+![](../../datos/reusable_ej3_foto11.png)
+
+Comprobar con la rama develop:
+
+![](../../datos/reusable_ej3_foto12.png)
+
+![](../../datos/reusable_ej3_foto13.png)
