@@ -12,7 +12,7 @@ on:
 
 jobs:
   mostrar-variables:
-    runs-on: [self-hosted, labs-runner]
+    runs-on: ubuntu-latest
     environment: ${{ inputs.environment }}
     steps:
     - name: Mostrar variables del enviroment
