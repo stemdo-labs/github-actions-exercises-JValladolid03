@@ -1,7 +1,11 @@
 name: Workflow Reusable EJ3_2  #Nombre del workflow
 
+# on:
+#   workflow_dispatch: #Se ejecuta en una rama a elección
 on:
-  workflow_dispatch: #Se ejecuta en una rama a elección
+  push: #Se ejecuta al hacer push en la rama "rama1"
+    branches:
+      - rama1
 
 jobs:
   #Crear variable de la rama en la que se ejecuta el workflow
@@ -20,11 +24,12 @@ jobs:
         elif [[ $GITHUB_REF_NAME == "rama1" ]]; then
           echo "environment=staging" >> "$GITHUB_OUTPUT"
         fi
+        echo "El enviroment es ${{ environment }}"
 
   #Llamar al reusable con la variable "rama"
-  llamar_workflow:
-    uses: ./.github/workflows/deploy-environment.yml
-    with:
-      environment: ${{ needs.crear_variable.outputs.environment }}
-    secrets:
-      token: ${{ secrets.MY_SECRET }}
+  # llamar_workflow:
+  #   uses: ./.github/workflows/deploy-environment.yml
+  #   with:
+  #     environment: ${{ needs.crear_variable.outputs.environment }}
+  #   secrets:
+  #     token: ${{ secrets.MY_SECRET }}
